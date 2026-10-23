@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant high-contrast (&:where(.high-contrast, .high-contrast *));
+
+html.light, body.light, [data-theme="light"] {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+html.dark, body.dark, [data-theme="dark"] {
+  background-color: #070b16;
+  color: #f8fafc;
+}
+
+html.high-contrast, body.high-contrast, [data-theme="high-contrast"] {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+:root, [data-theme="light"], .light {
+  --bg-app: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-header: rgba(255, 255, 255, 0.95);
+  --bg-sidebar: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --border-subtle: #e2e8f0;
+  --border-elevated: #cbd5e1;
+  --chart-grid: #e2e8f0;
+  --chart-text: #64748b;
+  --chart-tooltip-bg: #ffffff;
+  --chart-tooltip-border: #cbd5e1;
+  --chart-tooltip-text: #0f172a;
+}
+
+.dark, [data-theme="dark"] {
+  --bg-app: #070b16;
+  --bg-surface: #0f172a;
+  --bg-surface-elevated: #131d38;
+  --bg-card: #0f172a;
+  --bg-header: rgba(10, 15, 30, 0.9);
+  --bg-sidebar: #0c1222;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border-subtle: #1e293b;
+  --border-elevated: #334155;
+  --chart-grid: #1e293b;
+  --chart-text: #94a3b8;
+  --chart-tooltip-bg: #0f172a;
+  --chart-tooltip-border: #334155;
+  --chart-tooltip-text: #f8fafc;
+}
+
+/* High-Contrast Accessibility Theme */
+.high-contrast, [data-theme="high-contrast"] {
+  --bg-app: #000000;
+  --bg-surface: #050810;
+  --bg-surface-elevated: #0d121f;
+  --bg-card: #050810;
+  --bg-header: #000000;
+  --bg-sidebar: #000000;
+  --text-primary: #ffffff;
+  --text-secondary: #e2e8f0;
+  --text-muted: #cbd5e1;
+  --border-subtle: #ffffff;
+  --border-elevated: #38bdf8;
+  --chart-grid: #334155;
+  --chart-text: #ffffff;
+  --chart-tooltip-bg: #000000;
+  --chart-tooltip-border: #ffffff;
+  --chart-tooltip-text: #ffffff;
+}
+
+.high-contrast button,
+.high-contrast input,
+.high-contrast select {
+  outline-color: #38bdf8 !important;
+}
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', 'Noto Sans Tamil', 'Noto Sans Devanagari', 'Noto Sans Malayalam', 'Noto Sans Telugu', 'Noto Sans Kannada', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* Custom clinical scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-elevated);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print Optimization for Reports */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 11pt !important;
+  }
+
+  header, aside, .command-palette, .no-print, [role="navigation"] {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  .print-surface {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #94a3b8 !important;
+    box-shadow: none !important;
+  }
+}

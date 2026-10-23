@@ -1,0 +1,6 @@
+{
+  "name": "CardioTwin AI — Cardiovascular Digital Twin & Predictive Health Intelligence",
+  "description": "Personalized cardiovascular digital twin and predictive health intelligence platform. Combines EHR history with real-time simulated wearable streams for physiological risk prediction, what-if digital twin simulations, and clinical explainability.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

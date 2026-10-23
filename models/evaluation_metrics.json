@@ -1,0 +1,34 @@
+{
+  "targetName": "Elevated Physiological-Pattern Risk within Next 2 Hours",
+  "horizon": "2-hour forward rolling window",
+  "datasetSize": 2880,
+  "trainSamples": 2304,
+  "testSamples": 576,
+  "patientCount": 10,
+  "splitStrategy": "Patient-Level Partitioning (80/20 train/test, 0 patient overlap)",
+  "candidateModel": {
+    "name": "Calibrated Random Forest Classifier",
+    "version": "v2.4.1",
+    "accuracy": 0.889,
+    "precision": 1.0,
+    "recall": 0.619,
+    "f1Score": 0.765,
+    "rocAuc": 0.816,
+    "brierScore": 0.121,
+    "confusionMatrix": {
+      "trueNegative": 408,
+      "falsePositive": 0,
+      "falseNegative": 64,
+      "truePositive": 104
+    }
+  },
+  "baselineModel": {
+    "name": "Standardized Logistic Regression",
+    "version": "v1.0.0-baseline",
+    "accuracy": 0.887,
+    "precision": 1.0,
+    "recall": 0.613,
+    "f1Score": 0.76,
+    "rocAuc": 0.816
+  }
+}

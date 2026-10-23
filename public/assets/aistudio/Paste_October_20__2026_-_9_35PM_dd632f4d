@@ -1,0 +1,930 @@
+# MASTER PROJECT DEVELOPMENT PROMPT
+## CardioTwin AI — Personalized Cardiovascular Digital Twin & Predictive Health Intelligence Platform
+
+### 1. YOUR ROLE
+
+Act as a senior full-stack engineer, AI/ML engineer, healthcare data scientist, product designer, DevOps engineer, and technical documentation specialist.
+
+Build a complete, functional, polished, competition-ready software proof of concept called **CardioTwin AI** for the Happiest Health Digital Twin Challenge 2026.
+
+Do not produce only a landing page, static mockup, conceptual report, or disconnected code snippets. Build an integrated application with a functioning frontend, backend API, data-generation pipeline, trained and evaluated machine-learning model, simulated streaming wearable data, patient-specific digital twin state, interactive visualizations, automated tests, documentation, and deployment instructions.
+
+The project must run on Windows using VS Code and must be feasible for a student developer working individually under a short deadline.
+
+### 2. PROJECT MISSION
+
+Create a virtual representation of a patient's cardiovascular health by combining:
+
+A. STATIC AND HISTORICAL EHR DATA
+- Synthetic patient identifier.
+- Age and relevant demographic information.
+- Historical blood pressure measurements.
+- Cholesterol and HbA1c where relevant.
+- Diabetes and hypertension history.
+- Family-history indicators where included in the synthetic dataset.
+- Medication information as historical context only.
+- Historical health measurements and timestamps.
+
+B. DYNAMIC WEARABLE DATA
+- Heart rate in beats per minute.
+- Heart-rate variability (HRV), with clearly specified units and measurement conventions.
+- Sleep duration and sleep-related features.
+- Step count and activity intensity.
+- Optional oxygen saturation or other signals only when the data-generation assumptions and limitations are documented.
+- Timestamped observations from a simulated wearable device.
+- Data-quality and missing-measurement indicators.
+
+C. DIGITAL TWIN ENGINE
+- Merge patient history with recent time-series observations.
+- Maintain a current virtual patient state.
+- Update the state as new sensor observations arrive.
+- Track historical changes.
+- Recalculate model features when relevant data changes.
+- Display changes in predicted model output over time.
+- Explain which available features contributed to the prediction.
+
+D. PREDICTIVE INTELLIGENCE
+- Define one explicit, testable prediction target.
+- Use a reproducible training pipeline.
+- Train a baseline model and at least one reasonable alternative if time permits.
+- Compare models using held-out test data.
+- Report precision, recall, F1-score, confusion matrix, and ROC-AUC when appropriate and mathematically defined.
+- Persist the selected model and preprocessing pipeline.
+- Provide a clear distinction between model confidence, calibrated probability, and a clinical risk estimate.
+
+This is an experimental educational proof of concept. Never claim validated heart-attack prediction, clinical readiness, medical certification, or prevention of adverse events without appropriate evidence.
+
+### 3. DEFINE THE PREDICTION TASK CORRECTLY
+
+Use a clearly named target such as:
+
+"Elevated physiological-pattern risk within the next two hours in the simulated dataset."
+
+Implement the target using explicitly documented synthetic event-generation rules or an appropriate open-source dataset with suitable labels.
+
+Important requirements:
+- Do not use arbitrary clinical thresholds and describe them as medically validated.
+- Do not present synthetic labels as real patient outcomes.
+- Prevent data leakage from future measurements into current prediction features.
+- Split the data by patient and/or chronologically where appropriate.
+- Avoid placing adjacent overlapping time windows from the same patient across training and test sets.
+- Include a simple baseline for comparison.
+- Evaluate on held-out samples that were not used for model fitting or threshold selection.
+- If synthetic data makes the task too easy or results unreliable, state that clearly.
+- Display the task's limitations beside the evaluation metrics.
+- Do not create a fake accuracy score or hardcode impressive performance metrics.
+
+The application must distinguish:
+1. Experimental model output.
+2. Observed physiological measurements.
+3. Simulated alerts.
+4. Clinical diagnosis, which the prototype does not provide.
+
+### 4. RECOMMENDED TECHNOLOGY STACK
+
+Frontend:
+- React.
+- TypeScript.
+- Vite.
+- Tailwind CSS.
+- Reusable component architecture.
+- Recharts for interactive time-series visualizations.
+- Lucide icons.
+- Framer Motion for restrained animations.
+- React Router for page navigation.
+- A suitable accessible component library where helpful.
+
+Backend:
+- Python 3.12 or another supported Python version.
+- FastAPI.
+- Uvicorn.
+- Pydantic.
+- SQLAlchemy.
+- SQLite for the local MVP.
+- pandas and NumPy.
+- scikit-learn.
+- joblib for persisting the fitted model and preprocessing pipeline.
+- pytest and FastAPI TestClient for automated testing.
+
+Communication:
+- REST API for normal application requests.
+- Server-Sent Events or WebSockets for simulated wearable updates, with reconnection handling.
+- If real-time transport adds excessive complexity, provide a reliable polling fallback.
+
+Development:
+- VS Code on Windows.
+- Python virtual environment.
+- npm.
+- Git and GitHub.
+- Environment variables for configuration.
+- No mandatory paid services or API keys.
+
+Keep dependencies compatible with one another. Pin or constrain versions and document the tested environment.
+
+### 5. ADVANCED FRONTEND DESIGN SYSTEM
+
+Design a premium healthcare intelligence product, not a generic hospital admin template.
+
+Visual direction:
+- Deep midnight navy background.
+- Dark blue-gray panels.
+- Cyan and teal highlights.
+- Restrained violet accents for AI-related elements.
+- Warm amber for caution states.
+- Red only for genuinely high-priority simulated alerts.
+- High contrast, readable typography.
+- Generous spacing and carefully aligned components.
+- Subtle borders, realistic shadows, and consistent corner radii.
+- A professional clinical aesthetic inspired by modern medical monitoring products.
+
+Do not overload the screen with glowing effects, unnecessary gradients, decorative charts, or excessive animations.
+
+The application must look excellent on desktop, tablet, and mobile.
+
+Use semantic HTML, keyboard-accessible interactions, visible focus states, appropriate ARIA labels, and accessible chart descriptions.
+
+Create a reusable design system:
+- Color tokens.
+- Typography scale.
+- Spacing scale.
+- Buttons and form controls.
+- Cards and panels.
+- Status indicators.
+- Loading skeletons.
+- Empty states.
+- Error states.
+- Toast notifications.
+- Modal dialogs.
+- Reusable charts.
+- Responsive navigation.
+- Consistent table styling.
+
+### 6. FRONTEND LAYOUT
+
+Build a premium dashboard shell with:
+
+A. LEFT SIDEBAR
+- CardioTwin AI logo and wordmark.
+- Overview.
+- Patient Twins.
+- Live Monitoring.
+- Risk Analysis.
+- Digital Twin Simulator.
+- Model Performance.
+- Reports.
+- Settings.
+- Collapsible navigation.
+- Active route indicators.
+
+B. TOP HEADER
+- Current page title and breadcrumb.
+- Selected patient.
+- Data connection indicator.
+- Simulated stream status.
+- Last data update timestamp.
+- Notifications.
+- User profile placeholder.
+- Theme toggle if implemented consistently.
+
+C. MAIN CONTENT
+- Responsive dashboard grid.
+- Consistent spacing.
+- Clear visual hierarchy.
+- Data-driven components connected to the backend.
+- No fake values presented as live measurements.
+
+### 7. PAGE 1 — EXECUTIVE HEALTH OVERVIEW
+
+Build a polished dashboard featuring:
+
+- Patient selector.
+- Patient identifier and demographic summary.
+- Digital twin synchronization status.
+- Latest observed heart rate.
+- Latest available HRV with units.
+- Most recent blood pressure from the synthetic EHR or measurement stream, with timestamp.
+- Sleep summary.
+- Activity summary.
+- Experimental model output and its interpretation.
+- Wearable data freshness.
+- Recent event timeline.
+- Historical measurement charts.
+- Data completeness indicators.
+- Model limitations notice.
+
+Every displayed metric must be retrieved from application data or clearly identified as illustrative.
+
+Show the observation timestamp and data source for important measurements.
+
+Avoid using a generic green "healthy" badge as a medical conclusion.
+
+### 8. PAGE 2 — PATIENT DIGITAL TWINS
+
+Build a patient directory with:
+- Search by synthetic patient identifier.
+- Sorting and filtering.
+- Patient summary cards or a table.
+- Relevant historical characteristics.
+- Data availability status.
+- Last update time.
+- Open patient twin action.
+
+Create a detailed patient page with:
+- Patient profile.
+- Historical EHR summary.
+- Recent wearable observations.
+- Timeline of changes.
+- Data provenance.
+- Missing-data warnings.
+- Experimental prediction history.
+- Clear indication of synthetic data.
+
+Provide at least 20 reproducibly generated synthetic patient profiles if feasible, with enough timestamped observations to support model training and demonstration.
+
+Use realistic data distributions for software demonstration, but explicitly document that synthetic distributions are not evidence of population-level clinical validity.
+
+### 9. PAGE 3 — LIVE WEARABLE MONITORING
+
+Implement a genuine simulated streaming pipeline.
+
+Requirements:
+- Generate timestamped observations.
+- Use a configurable update interval.
+- Start, pause, resume, and reset the simulation.
+- Allow a user to select a patient.
+- Update the displayed measurements when new observations arrive.
+- Maintain a bounded in-memory chart window while retaining appropriate historical records in the database.
+- Handle disconnections, duplicate timestamps, missing values, invalid payloads, and API failures.
+- Indicate whether data is simulated, stale, paused, or connected.
+- Do not imply a physical wearable is connected.
+
+Display:
+- Heart-rate trend.
+- HRV trend.
+- Sleep summary where available.
+- Step-count progression.
+- Recent sensor observations.
+- Data quality and missingness.
+- Timestamp of the last received event.
+
+The stream must drive the interface. Do not merely animate a chart with unrelated random values.
+
+### 10. PAGE 4 — AI RISK ANALYSIS
+
+Create a dedicated explainability and model-output screen.
+
+Include:
+- Selected patient and prediction timestamp.
+- Explicit prediction target and forecast horizon.
+- Model output.
+- Output units and interpretation.
+- Relevant input measurements.
+- Missing or stale data warnings.
+- Feature contributions or feature importance.
+- Comparison with the baseline model.
+- Evaluation results on held-out data.
+- Confusion matrix.
+- Precision, recall and F1.
+- ROC-AUC where appropriate.
+- Evaluation sample count.
+- Model version and training timestamp.
+
+Do not use a probability score as though it were a clinically calibrated risk score.
+
+If using feature importance or SHAP-like explanations, describe what they actually represent. Do not claim causation from feature contributions.
+
+Do not show a feature contribution chart until the explanation is calculated from the selected model and input.
+
+### 11. PAGE 5 — INTERACTIVE DIGITAL TWIN SIMULATOR
+
+Build a what-if simulation workspace.
+
+Provide controls for changing selected inputs such as:
+- Sleep duration.
+- Activity level.
+- Recent heart-rate pattern.
+- HRV-related feature.
+- Selected historical context when appropriate.
+
+Requirements:
+- Clearly separate the observed baseline from hypothetical values.
+- Calculate the output through the actual fitted model.
+- Show the baseline and simulated model outputs side by side.
+- Explain which inputs changed.
+- Display the magnitude and direction of the model-output change.
+- Allow reset to baseline.
+- Validate input ranges.
+- Do not persist hypothetical inputs as real patient measurements.
+- Do not present the simulation as a guaranteed outcome or treatment recommendation.
+- Show a warning when hypothetical inputs are outside the training-data distribution.
+
+Do not use a fake "AI digital twin simulation" animation in place of actual model inference.
+
+### 12. PAGE 6 — MODEL PERFORMANCE LAB
+
+Create an evaluation workspace for the technical jury.
+
+Include:
+- Dataset-generation details.
+- Feature list.
+- Prediction target definition.
+- Training and test split strategy.
+- Patient-level separation where appropriate.
+- Model comparison.
+- Baseline metrics.
+- Selected model metrics.
+- Confusion matrix.
+- Precision-recall information.
+- ROC curve where appropriate.
+- Error analysis.
+- Known biases and data limitations.
+- Reproducible random seeds.
+- Model version and training configuration.
+
+Calculate every metric from actual held-out predictions. Handle undefined metrics and missing classes correctly.
+
+Do not promise accuracy, generalization, or clinical performance that has not been established.
+
+### 13. PAGE 7 — REPORTS AND EXPORTS
+
+Provide:
+- Patient twin summary.
+- Historical measurement summary.
+- Wearable time-series export.
+- Model-output history.
+- Data-quality report.
+- Model evaluation report.
+- Downloadable CSV files.
+- A printable patient summary.
+- A project demonstration report.
+
+Ensure that exports use the currently selected patient and the correct time range.
+
+Include a disclaimer and indicate when the data is synthetic.
+
+Avoid embedding secrets, unnecessary personal information, or real patient data.
+
+### 14. BACKEND API DESIGN
+
+Implement documented and validated FastAPI endpoints such as:
+
+GET /api/health
+GET /api/patients
+GET /api/patients/{patient_id}
+GET /api/patients/{patient_id}/ehr
+GET /api/patients/{patient_id}/wearables
+GET /api/patients/{patient_id}/timeline
+GET /api/patients/{patient_id}/twin
+GET /api/patients/{patient_id}/prediction
+POST /api/patients/{patient_id}/simulate
+GET /api/model/metrics
+GET /api/model/info
+GET /api/stream/status
+POST /api/stream/start
+POST /api/stream/pause
+POST /api/stream/reset
+GET /api/reports/{patient_id}/summary
+GET /api/reports/{patient_id}/wearables.csv
+
+Adapt the route names if needed, but ensure the frontend uses the implemented endpoints.
+
+Requirements:
+- Pydantic request and response schemas.
+- Appropriate HTTP status codes.
+- Input validation.
+- Predictable error responses.
+- CORS restricted to configured frontend origins.
+- Startup and shutdown lifecycle management.
+- Database initialization.
+- Structured logging.
+- Environment-based configuration.
+- No secret keys committed to Git.
+- Automatic OpenAPI documentation.
+- A documented development-only setup.
+
+### 15. DATABASE AND DATA MODEL
+
+Use SQLAlchemy and SQLite initially.
+
+Define suitable entities for:
+- Synthetic patients.
+- Historical EHR records.
+- Wearable observations.
+- Digital twin snapshots.
+- Prediction records.
+- Simulation sessions if persistence is necessary.
+- Model metadata.
+- Audit or event history where appropriate.
+
+Include:
+- Primary and foreign keys.
+- Timestamp handling.
+- Appropriate indexes.
+- Database initialization.
+- Seed-data commands.
+- Idempotent data generation.
+- Clear separation between observed data, generated data, and hypothetical simulation data.
+
+Never silently overwrite historical observations during a stream reset.
+
+### 16. SYNTHETIC DATA PIPELINE
+
+Implement reproducible scripts to generate:
+- Patient profiles.
+- Historical EHR records.
+- Wearable time series.
+- Documented simulated physiological patterns.
+- Synthetic prediction labels.
+- Training features and labels.
+
+Use a configurable random seed.
+
+Provide a README explaining:
+- How synthetic data is generated.
+- Which assumptions determine the labels.
+- Which features enter the model.
+- How timestamps and prediction windows are constructed.
+- How leakage is prevented.
+- Why synthetic data cannot establish clinical validity.
+
+If an external open dataset is used, include its official source, license, access restrictions, preprocessing and attribution requirements.
+
+Do not download restricted clinical datasets automatically or commit sensitive data.
+
+### 17. MODEL TRAINING PIPELINE
+
+Create modular backend code, for example:
+- backend/app/main.py
+- backend/app/config.py
+- backend/app/database.py
+- backend/app/models/
+- backend/app/schemas/
+- backend/app/api/
+- backend/app/services/
+- backend/app/ml/
+- backend/scripts/generate_data.py
+- backend/scripts/train_model.py
+- backend/tests/
+
+Use a reproducible scikit-learn pipeline.
+
+The pipeline should:
+1. Load the generated dataset.
+2. Validate its schema.
+3. Build features using only information available at prediction time.
+4. Split training and testing data appropriately.
+5. Fit preprocessing only on training data.
+6. Train a baseline.
+7. Train and compare a candidate model.
+8. Calculate held-out metrics.
+9. Persist the selected fitted pipeline.
+10. Save model metadata and evaluation results.
+11. Load the fitted pipeline for inference.
+12. Return validated predictions and explanatory information.
+
+Provide clear errors if the model has not been trained or required artifacts are missing.
+
+Never fit the model on the current test sample during inference.
+
+### 18. DIGITAL TWIN UPDATE ENGINE
+
+Implement a service that:
+- Combines a patient's static EHR features with a defined recent wearable window.
+- Validates timestamps and input freshness.
+- Computes rolling or windowed features.
+- Handles missing observations.
+- Tracks the last successful update.
+- Recalculates the model output when enough valid information exists.
+- Stores snapshots and prediction history.
+- Exposes the latest twin state to the frontend.
+- Records the feature window used for each prediction.
+
+Keep the prediction horizon and feature window distinct and documented.
+
+Do not interpret missing wearable data as normal physiological measurements.
+
+### 19. SECURITY, ETHICS AND PRIVACY
+
+This is a synthetic-data research prototype.
+
+Implement:
+- No real patient data by default.
+- No unnecessary personally identifiable information.
+- No hardcoded credentials.
+- Environment-variable configuration.
+- Input validation and safe error handling.
+- CORS restrictions.
+- Secure development practices.
+- No arbitrary code execution or shell commands exposed through the API.
+- Clear data-retention and reset behavior.
+- Explicit synthetic-data indicators throughout the UI.
+- Clinical-use disclaimer.
+- Documented limitations.
+
+Do not claim regulatory compliance merely because the prototype avoids real patient data.
+
+Do not diagnose, prescribe, change medications, or instruct users to ignore emergency symptoms.
+
+### 20. FRONTEND ENGINEERING QUALITY
+
+Requirements:
+- Use reusable typed components.
+- Define TypeScript types for API responses.
+- Create a central API client.
+- Configure the backend URL through an environment variable.
+- Provide loading, empty, error, and retry states.
+- Prevent duplicate requests where possible.
+- Clean up event streams when components unmount.
+- Handle expired connections and reconnect safely.
+- Avoid stale state in live charts.
+- Validate forms.
+- Use realistic but explicitly synthetic initial data.
+- Ensure every navigation item and action works.
+- Never leave important buttons as decorative placeholders.
+- Use consistent formatting for timestamps, units, and decimals.
+- Avoid unexplained abbreviations.
+- Include a useful empty state if no patients are loaded.
+
+### 21. RECOMMENDED FRONTEND STRUCTURE
+
+frontend/
+  src/
+    app/
+    components/
+      layout/
+      dashboard/
+      patients/
+      charts/
+      twin/
+      simulator/
+      reports/
+      ui/
+    pages/
+      OverviewPage.tsx
+      PatientsPage.tsx
+      PatientTwinPage.tsx
+      MonitoringPage.tsx
+      RiskAnalysisPage.tsx
+      SimulatorPage.tsx
+      ModelLabPage.tsx
+      ReportsPage.tsx
+      SettingsPage.tsx
+    hooks/
+    services/
+      api.ts
+      stream.ts
+    types/
+    utils/
+    styles/
+    main.tsx
+
+Adjust the structure when it improves maintainability. Do not create empty files simply to match a folder tree.
+
+### 22. RECOMMENDED REPOSITORY STRUCTURE
+
+CardioTwin-AI/
+  frontend/
+  backend/
+  data/
+    generated/
+  models/
+  docs/
+    architecture/
+    presentation/
+    demo/
+  scripts/
+  tests/
+  .gitignore
+  LICENSE
+  README.md
+  .env.example
+
+Keep generated databases, virtual environments, cache files, and large model artifacts out of Git when appropriate. Include a reproducible way to regenerate excluded artifacts.
+
+Do not commit actual secrets or private patient information.
+
+### 23. VISUAL QUALITY AND MICROINTERACTIONS
+
+Add carefully restrained product-quality details:
+- Smooth page transitions.
+- Subtle card hover states.
+- Animated chart transitions.
+- Skeleton loaders.
+- Responsive sidebar.
+- Clear active navigation.
+- Status indicators with text labels.
+- Helpful tooltips.
+- Accessible modal dialogs.
+- Toast notifications.
+- Confirmation before destructive resets.
+- Clear success and failure feedback.
+- A polished application logo or text-based brand mark.
+- A compelling landing or overview experience that immediately communicates the purpose of CardioTwin AI.
+
+Use animation to clarify state changes rather than distract from clinical data.
+
+Do not sacrifice functional completeness for visual effects.
+
+### 24. AUTOMATED TESTING
+
+Backend tests must cover:
+- Health endpoint.
+- Patient listing and retrieval.
+- Missing patient errors.
+- EHR and wearable retrieval.
+- Data validation.
+- Synthetic data generation.
+- Model training on a small deterministic dataset.
+- Model loading and inference.
+- Feature-window construction.
+- Prediction endpoint.
+- Simulation input validation.
+- Stream state transitions.
+- Report export.
+- Invalid and missing model artifacts.
+
+Frontend checks must cover:
+- Production build.
+- Route rendering.
+- API loading states.
+- API error states.
+- Patient selection.
+- Simulation input validation.
+- Stream status display.
+- Responsive navigation.
+- Critical user interactions.
+
+Provide commands to run all tests. Fix errors before reporting completion.
+
+### 25. DEPLOYMENT
+
+Support local development first.
+
+Document:
+- Required Python and Node.js versions.
+- Virtual environment creation.
+- Dependency installation.
+- Synthetic dataset generation.
+- Model training.
+- Database initialization.
+- Backend startup.
+- Frontend startup.
+- Test commands.
+- Production build commands.
+
+For deployment:
+- Frontend: Vercel or another suitable static frontend host.
+- Backend: a Python-compatible service such as Render.
+- Database: SQLite for local development; use a persistent disk or an appropriate managed database for deployment.
+- Configure environment variables.
+- Configure CORS.
+- Include a health-check endpoint.
+- Explain limitations of ephemeral filesystems.
+- Do not assume SQLite is shared between separate frontend and backend hosts.
+- Ensure the deployed backend can access model artifacts and required data.
+
+Never claim the application is deployed until it has actually been deployed and tested.
+
+### 26. HAPPIEST HEALTH CHALLENGE SUBMISSION PACKAGE
+
+Prepare all required materials for the challenge.
+
+A. PUBLIC GITHUB REPOSITORY
+- Clean source tree.
+- Complete README.
+- Setup instructions.
+- Architecture documentation.
+- Dataset-generation instructions.
+- Model training and evaluation instructions.
+- API documentation.
+- Test instructions.
+- Screenshots of the actual running application.
+- Open-source license.
+- Known limitations.
+
+B. README CONTENT
+1. Project title.
+2. Problem statement.
+3. Healthcare use case.
+4. Proposed solution.
+5. Digital twin concept.
+6. Static and dynamic data fusion.
+7. Prediction target and horizon.
+8. Technical stack.
+9. AI/ML model details.
+10. Data generation and provenance.
+11. Evaluation results from actual runs.
+12. Architecture.
+13. Installation and execution.
+14. API endpoints.
+15. Screenshots.
+16. Testing instructions.
+17. Limitations and ethical considerations.
+18. Future work.
+19. Team and college details, with placeholders until confirmed.
+20. License.
+
+C. ARCHITECTURE DIAGRAM
+Create a clear architecture diagram showing:
+- Synthetic EHR generation.
+- Wearable stream simulator.
+- Data validation.
+- Database.
+- Feature engineering.
+- Model training.
+- Inference service.
+- Digital twin state engine.
+- FastAPI.
+- React frontend.
+- Clinician dashboard.
+- Reports and evaluation.
+
+Export it to PDF or PPT and include the editable source when practical.
+
+D. PRESENTATION
+Create a professional 10–12-slide presentation:
+1. Title and team.
+2. Problem statement.
+3. Healthcare use case.
+4. CardioTwin AI solution.
+5. Digital twin architecture.
+6. Data fusion pipeline.
+7. Prediction model and target.
+8. Live prototype demonstration.
+9. Evaluation results and limitations.
+10. Expected impact.
+11. Future development.
+12. Conclusion and repository.
+
+Use actual model results. Do not fabricate clinical outcomes, testimonials, accuracy figures, or adoption.
+
+E. DEMONSTRATION VIDEO
+Prepare a minimum 20-minute demonstration outline with timestamps:
+- 0–2 min: introduction.
+- 2–5 min: healthcare problem and project objectives.
+- 5–8 min: architecture and data pipeline.
+- 8–12 min: synthetic EHR and wearable data.
+- 12–15 min: running digital twin and live monitoring.
+- 15–17 min: model output and evaluation.
+- 17–19 min: what-if simulation and reports.
+- 19–20+ min: limitations, impact and conclusion.
+
+Record the actual application. Do not simulate a completed demo using fabricated screenshots or claim unimplemented features are working.
+
+F. LICENSE
+Choose a suitable open-source license, such as MIT, after reviewing any third-party dataset and dependency terms. Include the license file and attribution where required.
+
+G. TEAM DETAILS
+Use placeholders for:
+- Team name.
+- Student name.
+- College.
+- Email.
+- Phone.
+- Submission repository URL.
+
+Never invent missing team details.
+
+### 27. IMPLEMENTATION ORDER
+
+Work through the following milestones in order.
+
+MILESTONE 1 — ENVIRONMENT
+- Check Python, Node.js, npm, Git and VS Code.
+- Create the project folder.
+- Create the Python virtual environment.
+- Confirm the environment works.
+
+MILESTONE 2 — BACKEND FOUNDATION
+- Install dependencies.
+- Create the FastAPI application.
+- Add health endpoint.
+- Verify /docs.
+- Add a smoke test.
+
+MILESTONE 3 — SYNTHETIC DATA
+- Generate patients, EHR records and wearable observations.
+- Verify schema and timestamp integrity.
+- Add deterministic seeds.
+- Test data-generation output.
+
+MILESTONE 4 — MACHINE LEARNING
+- Define target and horizon.
+- Build features.
+- Prevent leakage.
+- Train and evaluate baseline and candidate models.
+- Save artifacts.
+- Test predictions.
+
+MILESTONE 5 — DATABASE AND TWIN
+- Create database tables.
+- Store patient data.
+- Implement rolling feature windows.
+- Implement digital twin snapshots.
+- Add inference endpoint.
+- Test end-to-end data fusion.
+
+MILESTONE 6 — FRONTEND
+- Create React application.
+- Build responsive design system.
+- Implement dashboard shell.
+- Connect patient data.
+- Build charts and monitoring.
+- Implement AI analysis.
+- Implement what-if simulator.
+- Implement reports.
+
+MILESTONE 7 — STREAMING AND INTEGRATION
+- Implement the wearable simulator.
+- Connect streaming updates to the twin engine.
+- Verify frontend updates.
+- Handle errors and reconnections.
+
+MILESTONE 8 — TESTING AND POLISH
+- Run backend tests.
+- Run frontend checks.
+- Fix all critical issues.
+- Test from a clean startup.
+- Capture actual screenshots.
+
+MILESTONE 9 — DEPLOYMENT
+- Configure production environment.
+- Deploy frontend and backend if feasible.
+- Test the public deployment.
+- Verify all links.
+
+MILESTONE 10 — SUBMISSION
+- Complete README.
+- Create architecture diagram.
+- Create presentation.
+- Prepare and record the 20-minute-or-longer demo.
+- Verify the public GitHub repository.
+- Submit before the official deadline.
+
+### 28. REQUIRED CODING-AGENT BEHAVIOR
+
+Follow these rules throughout development:
+
+1. Begin by checking the current workspace and installed tools.
+2. If working in an existing project, inspect it before changing files.
+3. If starting from scratch, create the necessary files in the correct locations.
+4. Give beginner-friendly PowerShell commands for Windows.
+5. Generate complete, runnable source files, not pseudocode.
+6. Do not replace the backend with hardcoded frontend JSON.
+7. Do not leave key functions as TODOs or placeholders.
+8. Do not claim tests passed unless they were executed and passed.
+9. Do not claim deployment succeeded unless verified.
+10. Use environment variables for configurable URLs and settings.
+11. Avoid paid services and mandatory API keys.
+12. Prefer a simple, reliable implementation over unnecessary complexity.
+13. Keep the frontend and backend compatible.
+14. Fix import errors, dependency conflicts, type errors, failing tests and runtime errors.
+15. Provide a clear checkpoint after each milestone.
+16. Never ask the developer to implement large missing sections manually when the coding environment can create them.
+17. If something fails, diagnose the actual error and provide the smallest appropriate fix.
+18. Never silently skip a required challenge deliverable.
+19. Maintain an honest checklist of implemented, tested, incomplete and deployed features.
+20. If a requested feature cannot be completed safely or reliably, explain the limitation and implement the best feasible alternative.
+
+### 29. DEFINITION OF DONE
+
+The project is not complete merely because the frontend looks attractive.
+
+A successful MVP must demonstrate this complete sequence:
+
+1. Generate a synthetic patient and historical EHR.
+2. Generate timestamped wearable observations.
+3. Persist and retrieve the observations.
+4. Combine historical and recent dynamic features.
+5. Train and evaluate the model reproducibly.
+6. Load the fitted model in the API.
+7. Generate a prediction from the selected patient's actual feature window.
+8. Update the digital twin as new observations arrive.
+9. Display the twin and its predictions in the frontend.
+10. Run a what-if simulation through the actual model.
+11. Display real evaluation metrics.
+12. Export a report.
+13. Pass automated tests.
+14. Run successfully from documented Windows commands.
+15. Include all required submission documentation and the demo plan.
+
+At completion, provide:
+- A list of created files.
+- Exact installation commands.
+- Exact startup commands.
+- Test results.
+- Local URLs.
+- Any verified public deployment URLs.
+- Repository publishing steps.
+- Submission checklist.
+- Known limitations and remaining work.
+
+### 30. START NOW
+
+Begin with MILESTONE 1.
+
+Inspect the available development environment, determine which required tools are installed, and guide the user through any missing setup. Then implement the project milestone by milestone, testing each stage before proceeding.
+
+Do not stop after generating a plan. Proceed to actual implementation wherever the available environment permits.
+
+The goal is a working, explainable, reproducible healthcare digital twin proof of concept that honestly demonstrates EHR and wearable data fusion, model inference, interactive simulation, and a polished clinician-facing interface within the challenge deadline.

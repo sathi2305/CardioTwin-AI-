@@ -1,6 +1,12 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:ef4444,50:be123c,100:7c3aed&height=220&section=header&text=CardioTwin%20AI&fontSize=64&fontColor=ffffff&fontAlignY=38&desc=Personalized%20Cardiovascular%20Digital%20Twin%20%26%20Predictive%20Health%20Intelligence&descSize=18&descAlignY=60" alt="CardioTwin AI banner" width="100%"/>
+<br/>
+
+# 🫀 CardioTwin AI
+
+### Personalized Cardiovascular Digital Twin & Predictive Health Intelligence
+
+<img src="https://img.shields.io/badge/%E2%9D%A4%EF%B8%8F%20DIGITAL%20TWIN-PREDICTIVE%20HEALTH%20INTELLIGENCE-be123c?style=for-the-badge&labelColor=0f172a" alt="Digital Twin"/>
 
 <br/>
 
@@ -508,6 +514,5 @@ Released under the **[MIT License](LICENSE)**.
 
 <sub>Made with ❤️ by Team INNOVATION NINJAS · V.S.B College of Engineering Technical Campus<br/>Happiest Health Digital Twin Challenge 2026</sub>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:7c3aed,50:be123c,100:ef4444&height=110&section=footer" alt="footer wave" width="100%"/>
 
 </div>

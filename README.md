@@ -1,171 +1,513 @@
-# CardioTwin AI — Personalized Cardiovascular Digital Twin & Predictive Health Intelligence Platform
+<div align="center">
 
-**Happiest Health Digital Twin Challenge 2026 Submission**
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:ef4444,50:be123c,100:7c3aed&height=220&section=header&text=CardioTwin%20AI&fontSize=64&fontColor=ffffff&fontAlignY=38&desc=Personalized%20Cardiovascular%20Digital%20Twin%20%26%20Predictive%20Health%20Intelligence&descSize=18&descAlignY=60" alt="CardioTwin AI banner" width="100%"/>
+
+<br/>
+
+**EHR + wearable fusion &nbsp;·&nbsp; 2-hour risk forecast &nbsp;·&nbsp; What-If twin simulator &nbsp;·&nbsp; Explainable predictions**
+
+<br/>
+
+<a href="https://cardio-twin-ai-rose.vercel.app/">
+  <img src="https://img.shields.io/badge/🚀%20LAUNCH%20THE%20LIVE%20PLATFORM-cardio--twin--ai--rose.vercel.app-ef4444?style=for-the-badge&labelColor=0f172a" alt="Launch Live Platform"/>
+</a>
+&nbsp;
+<a href="https://drive.google.com/file/d/1xtvKV2KIxVREqAI5D82XyuyLg4A64EDi/view?usp=sharing">
+  <img src="https://img.shields.io/badge/🎬%20WATCH%20THE%20DEMO%20VIDEO-Google%20Drive-1a73e8?style=for-the-badge&labelColor=0f172a" alt="Watch Demo Video"/>
+</a>
+
+<br/><br/>
+
+![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-Strict-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=flat-square&logo=vite&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind-4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+![Express](https://img.shields.io/badge/Express-SSE%20Gateway-000000?style=flat-square&logo=express&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-Python%20API-009688?style=flat-square&logo=fastapi&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?style=flat-square&logo=scikitlearn&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-22c55e?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Research%20Prototype-f59e0b?style=flat-square)
+
+<br/>
+
+### 🏆 Team INNOVATION NINJAS &nbsp;•&nbsp; 🎓 V.S.B College of Engineering Technical Campus
+**Happiest Health Digital Twin Challenge 2026**
+
+<br/>
+
+[🌐 Live Demo](https://cardio-twin-ai-rose.vercel.app/) &nbsp;│&nbsp;
+[🎬 Demo Video](https://drive.google.com/file/d/1xtvKV2KIxVREqAI5D82XyuyLg4A64EDi/view?usp=sharing) &nbsp;│&nbsp;
+[✨ Features](#-features) &nbsp;│&nbsp;
+[🏗️ Architecture](#️-architecture) &nbsp;│&nbsp;
+[🤖 AI/ML](#-aiml-approach) &nbsp;│&nbsp;
+[🚀 Quick Start](#-quick-start) &nbsp;│&nbsp;
+[📡 API](#-api-reference) &nbsp;│&nbsp;
+[👥 Team](#-team)
+
+<br/>
+
+</div>
 
 ---
 
-## 1. Project Title
-**CardioTwin AI** — A Personalized Cardiovascular Digital Twin & Multi-Modal Predictive Health Intelligence Platform.
+<div align="center">
 
-## 2. Problem Statement
-Cardiovascular diseases (CVDs) remain the leading cause of premature mortality worldwide. Traditional cardiology practice relies primarily on sporadic, episodic clinical visits—capturing a static snapshot of blood pressure, lipid panels, and ECGs separated by months. Between these visits, dynamic autonomic decompensations, nocturnal arrhythmias, and acute hemodynamic strain go unmonitored until an adverse clinical event occurs.
+## 🩺 The Problem We Solve
 
-## 3. Healthcare Use Case
-Proactive autonomic and cardiovascular monitoring for ambulatory post-infarction, hypertensive, and diabetic patient cohorts. CardioTwin AI enables clinicians to visualize continuous autonomic balance, anticipate acute physiological pattern risk up to 2 hours ahead of time, and simulate counterfactual lifestyle and therapeutic interventions before applying them clinically.
+*Cardiology is episodic. Patients are not.*
 
-## 4. Proposed Solution
-An integrated software proof of concept fusing longitudinal Electronic Health Records (EHR) with continuous streaming photoplethysmography (PPG) and tri-axial accelerometry wearable telemetry into a real-time patient-specific cardiovascular digital twin.
+</div>
 
-## 5. Digital Twin Concept
-A virtual patient-specific computational model that mirrors human cardiovascular dynamics. As real-time biosensor packets arrive, the digital twin updates its virtual physiological state, tracks rolling autonomic indices (HRV RMSSD, resting HR elevation), computes calibrated pattern risk, and supports interactive counterfactual "What-If" clinical simulations.
+<div align="center">
 
-## 6. Static and Dynamic Data Fusion
-- **Static EHR Context**: Patient demographics, longitudinal cuff blood pressure, total/LDL/HDL cholesterol, HbA1c glycemia, documented CAD / Hypertension / Diabetes history, smoking status, and active medications.
-- **Dynamic Wearable Telemetry**: Real-time heart rate (bpm), Heart Rate Variability (HRV RMSSD in milliseconds), sleep architecture (duration, deep sleep %, sleep efficiency), step count, cadence intensity, SpO2 blood oxygenation, and skin temperature deviation.
+A blood-pressure reading here, an ECG there, months apart. Between visits, autonomic strain, restless nights and rising resting heart rate go unseen until something happens.
+**CardioTwin AI** closes that gap with a **patient-specific digital twin** that fuses long-term **EHR context** with a **continuous wearable stream**, tracks **HRV (RMSSD)** and **resting heart rate**, and estimates the chance of an **elevated physiological-pattern risk in the next 2 hours**.
 
-## 7. Prediction Target & Horizon
-- **Target Definition**: *"Elevated physiological-pattern risk within the next 2 hours in the simulated dataset."*
-- **Mathematical Criteria**: Defined as sustained resting tachycardia (> baseline + 25 bpm while sedentary/resting) coupled with depressed HRV vagal modulation (RMSSD < 25 ms) and sleep deficit under 5.5 hours.
-- **Forecast Horizon**: Strict forward 2-hour (120-minute) window.
-- **Leakage Prevention**: Strict separation between the 60-minute feature window and the 2-hour forward target. Zero future observations contaminate current feature calculations.
+<br/>
 
-## 8. Technical Stack
-- **Frontend**: React 19, TypeScript, Vite, Tailwind CSS v4, Recharts, Lucide Icons, HTML5 Canvas ECG visualizer.
-- **Full-Stack / Gateway**: Node.js Express server with Server-Sent Events (SSE) streaming on port 3000.
-- **Backend API & ML Engine**: Python 3.10+ / 3.12, FastAPI, Pydantic, scikit-learn, NumPy, pandas, joblib.
-- **Development & Tooling**: VS Code on Windows / Linux, PowerShell, npm, pytest.
+<table>
+<tr>
+<td align="center" width="25%"><h3>🧬</h3><b>Digital Twin</b><br/><sub>A virtual patient that updates with every sensor packet</sub></td>
+<td align="center" width="25%"><h3>📡</h3><b>Live Telemetry</b><br/><sub>Server-Sent Events stream with start, pause and reset</sub></td>
+<td align="center" width="25%"><h3>🔮</h3><b>2-Hour Forecast</b><br/><sub>Risk probability with feature contributions</sub></td>
+<td align="center" width="25%"><h3>🎛️</h3><b>What-If Lab</b><br/><sub>Test sleep, BP, heart rate and adherence changes</sub></td>
+</tr>
+</table>
 
-## 9. AI/ML Model Details
-- **Candidate Model**: Calibrated Random Forest & Gradient Boosted Decision Trees with isotonic probability calibration.
-- **Baseline Model**: L2-penalized standardized Logistic Regression.
-- **Validation Protocol**: GroupKFold / Patient-Level Partitioning (80/20 train/held-out test split, 0 patient overlap across splits).
+</div>
 
-## 10. Data Generation and Provenance
-- Synthetic dataset generation pipeline: `backend/scripts/generate_data.py`.
-- Generates 14,400+ timestamped observations across 20 distinct synthetic patient cohorts using deterministic random seeds (`seed=42`).
-- Preserves realistic circadian variation, autonomic strain dynamics, and demographic distributions.
+<div align="center">
 
-## 11. Evaluation Results from Actual Runs
-Evaluated on **2,880 independent held-out test observations**:
-- **ROC-AUC**: **0.891** (Candidate) vs **0.792** (Baseline) — *+12.5% discrimination gain*
-- **F1-Score**: **0.828** (Candidate) vs **0.735** (Baseline)
-- **Precision**: **0.842**
-- **Recall / Sensitivity**: **0.815**
-- **Specificity**: **91.8%**
-- **Overall Accuracy**: **86.8%**
-- **Brier Score**: **0.108** (Superior probabilistic calibration)
-- **Confusion Matrix**: True Negative = 1,714 | False Positive = 154 | False Negative = 187 | True Positive = 825
+> ⚠️ **Prototype notice:** all patients and sensor data are **synthetic**. This is an educational proof of concept, not a diagnostic tool or medical device.
 
-## 12. Architecture
+</div>
+
+---
+
+<div align="center">
+
+## 📌 At a Glance
+
+| 👥 Synthetic patients | 🪟 Feature window | ⏱️ Forecast horizon | 🌍 Languages | 🖥️ Dashboard pages |
+|:---:|:---:|:---:|:---:|:---:|
+| **10** | **60 min** | **2 hours** | **6** | **13** |
+
+</div>
+
+---
+
+<div align="center">
+
+## ✨ Features
+
+</div>
+
+<div align="center">
+
+| | Feature | What it does |
+|:---:|:---|:---|
+| 📊 | **Executive overview** | Real-time vitals, rolling HR/HRV trends and a canvas-drawn lead II ECG strip |
+| 👥 | **Patient digital twins** | Registry of 10 synthetic patients with EHR profile: BP, lipids, HbA1c, CAD / hypertension / diabetes, smoking status |
+| 📡 | **Live wearable monitoring** | Streaming HR, HRV, SpO₂, sleep, steps and skin-temperature deviation with speed control and a packet inspector |
+| 🧠 | **AI risk intelligence** | Calibrated 2-hour risk probability, odds ratios and additive per-feature contributions |
+| 🎛️ | **What-If simulator** | Counterfactual runs on sleep, blood pressure, heart rate and medication adherence |
+| 🧪 | **Model Performance Lab** | ROC and PR curves, confusion matrix and feature importances |
+| 🚨 | **Alerts & notifications** | Configurable thresholds, notification drawer and history |
+| 🗣️ | **Multilingual explainer** | Patient-friendly explanations in English, Tamil, Hindi, Malayalam, Telugu and Kannada |
+| 📄 | **Reports & export** | Printable twin dossiers and per-patient wearable CSV export |
+| ⌨️ | **Productivity** | Command palette, keyboard shortcuts, light / dark theme, responsive layout |
+
+</div>
+
+---
+
+<div align="center">
+
+## 🏗️ Architecture
+
+</div>
+
+```mermaid
+flowchart TB
+    EHR["🗂️ Static EHR Context<br/>Demographics · BP · Lipids · HbA1c<br/>CAD / HTN / DM · Smoking · Meds"]
+    WEAR["⌚ Wearable Telemetry<br/>HR · HRV RMSSD · SpO₂ · Sleep<br/>Steps · Skin temp"]
+
+    subgraph Gateway["⚙️ Express Gateway · port 3000"]
+        BUF["Validation & rolling buffer<br/>last 60 min window"]
+        TWIN["🧬 Digital Twin Engine<br/>state · rolling indices · risk score"]
+        SIM["🎛️ What-If Simulator"]
+        SSE["📡 SSE Stream<br/>/api/stream/events"]
+        EXPL["🗣️ Multilingual Explainer<br/>template based"]
+        REST["🔌 REST API /api/*"]
+    end
+
+    subgraph ML["🐍 Python ML Pipeline · offline"]
+        GEN["generate_data.py<br/>synthetic cohort, seed 42"]
+        TRAIN["train_model.py<br/>Logistic Regression vs<br/>calibrated Random Forest"]
+        ART[("💾 models/<br/>pipeline.joblib<br/>evaluation_metrics.json")]
+    end
+
+    subgraph UI["🖥️ React 19 Dashboard"]
+        PAGES["Overview · Patients · Monitoring · Risk<br/>Simulator · Model Lab · Reports · Timeline"]
+    end
+
+    EHR --> BUF
+    WEAR --> BUF
+    BUF --> TWIN
+    TWIN --> SIM
+    TWIN --> REST
+    TWIN --> EXPL
+    SSE --> PAGES
+    REST --> PAGES
+    GEN --> TRAIN --> ART
+    FAST["🐍 FastAPI backend/app/main.py"] -.-> ART
+    FAST -.->|"health · patients · simulate · CSV"| PAGES
+
+    classDef src fill:#fee2e2,stroke:#ef4444,color:#7f1d1d;
+    classDef core fill:#ede9fe,stroke:#7c3aed,color:#3b0764;
+    classDef ml fill:#fef3c7,stroke:#f59e0b,color:#78350f;
+    class EHR,WEAR src;
+    class TWIN,SIM,BUF core;
+    class GEN,TRAIN,ART ml;
 ```
-[ Longitudinal EHR ]               [ Wearable PPG / Accelerometer ]
-        |                                         |
-        +--------------------+--------------------+
-                             |
-                             v
-                 [ Data Validation & FIFO Buffer ]
-                             |
-                             v
-               [ Digital Twin State & Feature Engine ]
-            (Rolling 60m Windows: HR, Min RMSSD, Sleep Deficit)
-                             |
-                             v
-                 [ Calibrated ML Model Pipeline ]
-                 (GBDT / Random Forest Classifier)
-                             |
-            +----------------+----------------+
-            |                                 |
-            v                                 v
-   [ 2-Hour Risk Probability ]     [ SHAP Additive Explainability ]
-            |                                 |
-            +----------------+----------------+
-                             |
-                             v
-     [ Real-Time SSE Stream & REST API Gateway (Port 3000) ]
-                             |
-                             v
-    [ Clinician Dashboard: Executive Overview, Live Telemetry,
-      What-If Twin Simulator, Model Performance Lab, Reports ]
+
+<div align="center">
+
+### 🔁 Data & Prediction Flow
+
+</div>
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant W as ⌚ Wearable stream
+    participant G as ⚙️ Gateway
+    participant T as 🧬 Twin Engine
+    participant U as 🖥️ Dashboard
+
+    W->>G: Packet (HR, HRV, SpO₂, sleep)
+    G->>T: Append to rolling buffer
+    T->>T: 60-min features + EHR context
+    T->>T: Log-odds → calibrated probability
+    T-->>G: Risk level + feature contributions
+    G-->>U: SSE event
+    U->>G: POST /simulate (What-If inputs)
+    G->>T: Re-score with modified inputs
+    T-->>U: Baseline vs simulated risk
 ```
 
-## 13. Installation and Execution
+<div align="center">
 
-### Windows PowerShell (Recommended for Students)
-```powershell
-# 1. Clone repository
-git clone https://github.com/CardioTwin-AI/CardioTwin-AI.git
-cd CardioTwin-AI
+### 🎯 Prediction Target & Leakage Control
 
-# 2. Setup Python environment
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-pip install -r requirements.txt
+| | |
+|:---|:---|
+| **Target** | *Elevated physiological-pattern risk within the next 2 hours* (simulated dataset) |
+| **Definition** | Sustained resting tachycardia (> baseline + 25 bpm), depressed HRV (RMSSD < 25 ms) and sleep deficit (< 5.5 h) |
+| **Feature window** | Trailing 60 minutes of telemetry plus static EHR |
+| **Forecast window** | Strictly the next 120 minutes; no future data enters the features |
+| **Split** | Patient-level 80/20 partition with no patient overlap |
 
-# 3. Generate synthetic dataset & train model
+</div>
+
+---
+
+<div align="center">
+
+## 🤖 AI/ML Approach
+
+</div>
+
+```mermaid
+flowchart LR
+    A["🧪 Synthetic cohort<br/>generate_data.py · seed 42"] --> B["🧹 Feature set<br/>age · SBP · DBP · CAD · HTN · DM<br/>HR · HRV RMSSD · SpO₂"]
+    B --> C["✂️ Patient-level split<br/>80/20 · no overlap"]
+    C --> D["📉 Baseline<br/>Standardized Logistic Regression"]
+    C --> E["🌲 Candidate<br/>Calibrated Random Forest"]
+    D --> F["📊 Held-out evaluation<br/>AUC · F1 · Precision · Recall · Brier"]
+    E --> F
+    F --> G[("💾 models/<br/>pipeline.joblib + metrics")]
+    B --> H["🧬 Twin engine<br/>weighted log-odds → probability"]
+    H --> I["🔎 Additive feature contributions<br/>+ What-If counterfactuals"]
+```
+
+<div align="center">
+
+| Stage | Approach |
+|:---|:---|
+| **Problem framing** | Binary classification: elevated physiological-pattern risk in the next 2 hours |
+| **Data** | Synthetic EHR + wearable observations with circadian variation; deterministic seed |
+| **Features** | Static EHR (age, BP, CAD / HTN / DM) and dynamic telemetry (HR, HRV RMSSD, SpO₂). The live twin adds 60-minute rolling windows, sleep deficit and LDL/HDL ratio |
+| **Models** | Standardized Logistic Regression baseline vs calibrated Random Forest |
+| **Validation** | Patient-level partition to prevent leakage across one person's samples |
+| **Metrics** | ROC-AUC, F1, precision, recall, accuracy, Brier score, confusion matrix |
+| **Explainability** | Per-feature additive contributions and odds ratios beside every prediction |
+| **Counterfactuals** | What-If simulator re-scores the twin after changing sleep, BP, heart rate or adherence |
+| **Language layer** | Template-based patient-friendly explanations in six languages |
+
+</div>
+
+---
+
+<div align="center">
+
+## 🧰 Tech Stack
+
+</div>
+
+<div align="center">
+
+| Layer | Technology |
+|:---:|:---|
+| 🎨 **Frontend** | React 19 · TypeScript · Vite 8 · Tailwind CSS 4 · Recharts · Motion · Lucide Icons · i18next · HTML5 Canvas (ECG) |
+| ⚙️ **Gateway** | Node.js · Express 4 · Server-Sent Events · `tsx` · dotenv |
+| 🐍 **Python API** | FastAPI · Pydantic |
+| 🧪 **ML / Data** | scikit-learn · pandas · NumPy · joblib |
+| ✨ **Optional AI SDK** | `@google/genai` (installed, not yet called) |
+| 🛠️ **Tooling** | TypeScript · npm / Bun · Python test script |
+| ☁️ **Hosting** | Vercel |
+
+</div>
+
+---
+
+<div align="center">
+
+## 🚀 Quick Start
+
+**Prerequisites:** Node.js 18+ &nbsp;•&nbsp; Python 3.10+ (only for the ML pipeline and FastAPI service)
+
+</div>
+
+```bash
+# 1. Clone and run the app
+git clone https://github.com/sathi2305/CardioTwin-AI-.git
+cd CardioTwin-AI-
+npm install
+cp .env.example .env
+npm run dev                      # → http://localhost:3000
+```
+
+<details>
+<summary><b>🐍 Rebuild the dataset and model (optional)</b></summary>
+
+```bash
+pip install fastapi pydantic scikit-learn pandas numpy joblib
 python backend/scripts/generate_data.py
 python backend/scripts/train_model.py
-
-# 4. Install Node dependencies & launch app
-npm install
-npm run dev
 ```
-Open browser at `http://localhost:3000`.
 
-## 14. API Endpoints
-- `GET  /api/health` — Health check, engine status & version
-- `GET  /api/patients` — List all synthetic patient profiles
-- `GET  /api/patients/{id}/twin` — Current digital twin state snapshot
-- `GET  /api/patients/{id}/wearables` — Recent sensor observations
-- `GET  /api/patients/{id}/prediction` — Calibrated 2-hour risk prediction & SHAP contributions
-- `POST /api/patients/{id}/simulate` — Run What-If counterfactual simulation
-- `GET  /api/model/metrics` — Held-out test evaluation benchmarks
-- `GET  /api/model/info` — Model architecture, training configuration, and leakage protocol
-- `GET  /api/stream/status` — Wearable streaming state
-- `POST /api/stream/start` — Start simulated wearable stream
-- `POST /api/stream/pause` — Pause streaming
-- `POST /api/stream/reset` — Reset buffer
-- `GET  /api/stream/events` — Server-Sent Events (SSE) live sensor telemetry
-- `GET  /api/reports/{id}/wearables.csv` — Export raw sensor time-series as CSV
+</details>
 
-## 15. Screenshots & UI Walkthrough
-1. **Executive Health Overview**: Real-time vitals, twin resilience score, rolling HR/HRV trends, and lead II rhythm strip.
-2. **Patient Digital Twins**: Cohort registry of 20 synthetic patients with longitudinal EHR profiles and medication history.
-3. **Live Wearable Monitoring**: High-frequency streaming telemetry with start/pause/reset controls, speed selection, and packet inspector.
-4. **AI Risk Intelligence**: Additive SHAP-style feature contributions, odds ratios, and prediction horizon disclosures.
-5. **What-If Digital Twin Simulator**: Interactive sliders for sleep, blood pressure, heart rate, and medication adherence.
-6. **Model Performance Lab**: Complete technical jury suite showing ROC curves, PR curves, Confusion Matrix, and feature importances.
-7. **Clinical Reports & Exports**: Printable patient twin dossiers and CSV sensor export.
-8. **Challenge Dossier**: 12-slide presentation deck, 20-minute video demo timestamps, and architecture diagram.
+<details>
+<summary><b>⚙️ Environment variables</b></summary>
 
-## 16. Testing Instructions
-Run automated test suite:
+| Variable | Default | Purpose |
+|:---|:---|:---|
+| `PORT` | `3000` | Server port |
+| `VITE_API_BASE_URL` | *(empty)* | API base URL for the frontend |
+| `GEMINI_API_KEY` | *(empty)* | Reserved for the explainer (see Model Results & Transparency) |
+| `APP_URL` | *(empty)* | Public app URL |
+
+</details>
+
+<details>
+<summary><b>✅ Quality checks</b></summary>
+
 ```bash
-python backend/tests/test_api.py
-```
-Run frontend build validation:
-```bash
-npm run lint
+python backend/tests/test_api.py    # 3 tests
+npm run lint                        # tsc --noEmit
 npm run build
 ```
 
-## 17. Limitations and Ethical Considerations
-- **Non-Diagnostic Prototype**: Experimental educational proof of concept. Does not diagnose disease, prescribe therapy, or replace a licensed cardiologist.
-- **Synthetic Data Boundary**: Synthetic distributions do not represent population-level clinical validity.
-- **Sensor Motion Artifacts**: Photoplethysmography is susceptible to motion artifacts.
-- **Correlation vs Causation**: Feature contributions reflect statistical predictive weight, not verified clinical causation.
+</details>
 
-## 18. Future Work
-- Integration with FHIR/HL7 clinical EHR standards.
-- Low-power on-device edge ML inference on Apple Watch / Wear OS smartwatches.
-- Multi-lead ECG arrhythmia classification models.
-- Prospective randomized clinical validation study.
+---
 
-## 19. Team and College Details
-- **Team Name**: CardioTwin AI Research Group
-- **Student Name**: [Student Developer Name]
-- **College / University**: [University / Institution Name]
-- **Email**: sathimoorthi2006@gmail.com
-- **Repository**: [GitHub Repository URL]
+<div align="center">
 
-## 20. License
-Released under the [MIT License](LICENSE).
+## 📡 API Reference
+
+</div>
+
+<div align="center">
+
+| Method | Endpoint | Description |
+|:---:|:---|:---|
+| `GET` | `/api/health` | Service health and version |
+| `GET` | `/api/patients` | List synthetic patients |
+| `GET` | `/api/patients/:id` | One patient's EHR profile |
+| `GET` | `/api/patients/:id/wearables` | Recent sensor observations |
+| `GET` | `/api/patients/:id/twin` | Current digital twin state |
+| `GET` | `/api/patients/:id/prediction` | 2-hour risk prediction and contributions |
+| `POST` | `/api/patients/:id/simulate` | What-If counterfactual simulation |
+| `GET` | `/api/model/metrics` | Model evaluation metrics |
+| `GET` | `/api/model/info` | Target, horizon and leakage protocol |
+| `GET` | `/api/stream/status` | Stream state |
+| `POST` | `/api/stream/start` · `/pause` · `/reset` | Stream controls |
+| `GET` | `/api/stream/events` | SSE telemetry stream |
+| `GET` | `/api/reports/:patient_id/wearables.csv` | CSV export |
+| `POST` | `/api/ai/multilingual-explain` | Localized explanation of a patient's trend |
+
+</div>
+
+---
+
+<div align="center">
+
+## 📁 Project Structure
+
+</div>
+
+```text
+CardioTwin-AI-/
+├── server.ts                    # Express gateway, SSE stream, REST API
+├── src/
+│   ├── pages/                   # Overview, Patients, Monitoring, RiskAnalysis,
+│   │                            # Simulator, ModelLab, Reports, Timeline, Docs ...
+│   ├── components/              # charts (ECG, HR, HRV, ROC, confusion matrix),
+│   │                            # layout, monitoring, twin, ui
+│   ├── utils/digitalTwinEngine.ts   # twin state, risk scoring, What-If
+│   ├── data/                    # synthetic patients, model metrics
+│   ├── i18n/                    # en · ta · hi · ml · te · kn
+│   ├── services/                # API client, stream client
+│   └── context/                 # theme, language, sidebar
+├── backend/
+│   ├── app/main.py              # FastAPI service
+│   ├── scripts/                 # generate_data.py, train_model.py
+│   └── tests/test_api.py
+├── data/generated/              # synthetic wearable dataset
+├── models/                      # trained pipeline + evaluation_metrics.json
+├── CardioTwin_AI_Architecture_Diagram_Enhanced.pdf
+└── CardioTwin_AI_Challenge_Presentation (1).pptx
+```
+
+---
+
+<div align="center">
+
+## 📊 Model Results & Transparency
+
+Metrics from the training script's own output, `models/evaluation_metrics.json` (10 synthetic patients, 2,880 observations, 576 held-out):
+
+| Model | ROC-AUC | F1 | Precision | Recall | Brier |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| Logistic Regression baseline | 0.816 | 0.760 | 1.000 | 0.613 | n/a |
+| Calibrated Random Forest | 0.816 | 0.765 | 1.000 | 0.619 | 0.121 |
+
+</div>
+
+> **Please read:**
+> - These are scores on **synthetic data whose label is defined by rules over the same features**, so they show the pipeline works. They say nothing about real-world clinical accuracy.
+> - The **Model Lab page and `/api/model/metrics`** display a separate set of figures (ROC-AUC 0.891, 14,400 observations, 20 patients) stored as constants in `src/data/modelEvaluation.ts`. They are not the output of `train_model.py`, and the ROC/PR curves there are hand-entered. Treat that page as an illustrative mock-up until it is wired to the real metrics.
+> - The **live risk score** comes from a hand-weighted logistic formula in `digitalTwinEngine.ts`; the trained `.joblib` pipeline is not loaded by the server.
+> - The **multilingual explainer** uses template text; no Gemini call is made yet, even when `GEMINI_API_KEY` is set.
+
+---
+
+<div align="center">
+
+## 🌐 Deployment
+
+**Live now:** [**cardio-twin-ai-rose.vercel.app**](https://cardio-twin-ai-rose.vercel.app/)
+
+</div>
+
+- Hosted on **Vercel**.
+- `npm run build` produces the static dashboard; `npm run dev` or `npm start` runs the full Express gateway with SSE.
+
+---
+
+<div align="center">
+
+## ⚖️ Limitations & Ethics
+
+</div>
+
+| | |
+|:---|:---|
+| 🩺 **Non-diagnostic** | Educational prototype; it does not diagnose, prescribe or replace a cardiologist |
+| 🧪 **Synthetic data** | Distributions are not clinically validated |
+| ⌚ **Sensor artifacts** | PPG is sensitive to motion |
+| 🔗 **Correlation, not causation** | Feature contributions show statistical weight only |
+
+---
+
+<div align="center">
+
+## 🗺️ Roadmap
+
+</div>
+
+<div align="center">
+
+| Status | Item |
+|:---:|:---|
+| ✅ | Digital twin, live stream, What-If simulator, reports |
+| ✅ | Synthetic data generator and training pipeline |
+| 🔜 | Serve the trained model from the API and show its real metrics in the Model Lab |
+| 🔜 | `requirements.txt` and CI for the Python tests |
+| 🔜 | LLM-backed multilingual explanations |
+| 💡 | FHIR / HL7 integration and on-device inference |
+| 💡 | Multi-lead ECG arrhythmia classification and prospective validation |
+
+</div>
+
+---
+
+<div align="center">
+
+## 🤝 Contributing
+
+**Fork** → **Branch** (`feature/your-idea`) → **Commit** → **Push** → **Open a Pull Request**
+
+<br/>
+
+## 📄 License
+
+Released under the **[MIT License](LICENSE)**.
+
+</div>
+
+---
+
+<div align="center">
+
+## 👥 Team
+
+### 🥷 INNOVATION NINJAS
+
+<br/>
+
+| Role | Name |
+|:---:|:---|
+| 👑 **Team Leader** | **Sathiyamoorthi S** · [@sathi2305](https://github.com/sathi2305) |
+| 🤝 **Team Member** | **Omprakash S** |
+
+<br/>
+
+🎓 **V.S.B College of Engineering Technical Campus**
+
+<br/>
+
+[🎬 Watch the demo video](https://drive.google.com/file/d/1xtvKV2KIxVREqAI5D82XyuyLg4A64EDi/view?usp=sharing) &nbsp;•&nbsp; [🌐 Open the live platform](https://cardio-twin-ai-rose.vercel.app/)
+
+<br/>
+
+> ⚠️ **Disclaimer:** CardioTwin AI is a research prototype using synthetic data. It is not medical advice and must not be used for diagnosis or treatment.
+
+<br/>
+
+<a href="https://cardio-twin-ai-rose.vercel.app/">
+  <img src="https://img.shields.io/badge/▶%20Try%20CardioTwin%20AI%20Live-ef4444?style=for-the-badge&labelColor=0f172a" alt="Try CardioTwin AI"/>
+</a>
+
+<br/><br/>
+
+**⭐ If this project is useful, please star the repo! ⭐**
+
+<sub>Made with ❤️ by Team INNOVATION NINJAS · V.S.B College of Engineering Technical Campus<br/>Happiest Health Digital Twin Challenge 2026</sub>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:7c3aed,50:be123c,100:ef4444&height=110&section=footer" alt="footer wave" width="100%"/>
+
+</div>
